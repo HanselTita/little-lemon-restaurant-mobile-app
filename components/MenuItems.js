@@ -60,23 +60,13 @@ const sectionHeader = ({ section: { title } }) => (
 //separator component to render a line between items
 const separator = () => <View style={style.separator} />;
 
-const Footer = () => {
-  return (
-    <View>
-      <Text style={style.footerText}>
-        All rights reserved by Little Lemon, 2026
-      </Text>
-    </View>
-  );
-};
-
 const MenuItems = () => {
   // Function to render each item in the SectionList
   const renderItem = ({ item }) => <Item name={item.name} price={item.price} />;
 
   return (
     <View style={style.container}>
-      <Text style={style.header}>Menu Items </Text>
+      <Text style={style.header}>Today&apos;s Menu</Text>
       <SectionList
         sections={menuItemsToDisplay}
         keyExtractor={(item, index) => item + index}
@@ -85,7 +75,6 @@ const MenuItems = () => {
           <Text style={style.sectionFooter}>{data.length} items</Text>
         )}
         renderSectionHeader={sectionHeader}
-        ListFooterComponent={Footer}
         ItemSeparatorComponent={separator}
       ></SectionList>
     </View>
@@ -121,16 +110,10 @@ const style = StyleSheet.create({
     padding: 10,
     textAlign: "center",
   },
-  footerText: {
-    backgroundColor: "#EE9972",
-    marginBottom: 20,
-    fontSize: 20,
-    flexWrap: "wrap",
-    textAlign: "center",
-  },
+
   separator: {
     height: 1,
-    backgroundColor: "#69623c",
+    backgroundColor: "#4a462e",
   },
   sectionFooter: {
     textAlign: "center",

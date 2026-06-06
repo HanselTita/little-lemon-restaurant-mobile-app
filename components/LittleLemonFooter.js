@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   footerText: {
-    fontSize: 18,
+    fontSize: 16,
     color: "black",
     textAlign: "center",
     fontStyle: "italic",
