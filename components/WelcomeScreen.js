@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { ScrollView, StyleSheet, Text, TextInput } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+} from "react-native";
 
 export default function WelcomeScreen() {
   const [firstNName, setFirstName] = useState("");
@@ -7,34 +14,43 @@ export default function WelcomeScreen() {
   const [message, setMessage] = useState("");
 
   return (
-    <ScrollView indicatorStyle="white" style={styles.container}>
-      <Text style={styles.headerText}>Welcome to Little Lemon</Text>
-      <Text style={styles.regularText}>
-        Little Lemon is a charming neighborhood bistro that serves simple food
-        and classic cocktails in a lively but casual environment. We would love
-        to hear more about your experience with us!
-      </Text>
-      <TextInput
-        style={styles.textInput}
-        value={firstNName}
-        placeholder="First Name"
-        onChangeText={setFirstName}
-      />
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView
+        indicatorStyle="white"
+        style={styles.container}
+        keyboardDismissMode="on-drag"
+      >
+        <Text style={styles.headerText}>Welcome to Little Lemon</Text>
+        <Text style={styles.regularText}>
+          Little Lemon is a charming neighborhood bistro that serves simple food
+          and classic cocktails in a lively but casual environment. We would
+          love to hear more about your experience with us!
+        </Text>
+        <TextInput
+          style={styles.textInput}
+          value={firstNName}
+          placeholder="First Name"
+          onChangeText={setFirstName}
+        />
 
-      <TextInput
-        style={styles.textInput}
-        value={email}
-        placeholder="Email"
-        onChangeText={setEmail}
-      />
+        <TextInput
+          style={styles.textInput}
+          value={email}
+          placeholder="Email"
+          onChangeText={setEmail}
+        />
 
-      <TextInput
-        style={styles.textInput}
-        value={message}
-        placeholder="Message"
-        onChangeText={setMessage}
-      />
-    </ScrollView>
+        <TextInput
+          style={styles.textInput}
+          value={message}
+          placeholder="Message"
+          onChangeText={setMessage}
+        />
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
