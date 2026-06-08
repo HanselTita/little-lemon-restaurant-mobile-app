@@ -1,82 +1,99 @@
 import { useState } from "react";
-import {
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-} from "react-native";
+import { ScrollView, StyleSheet, Text, TextInput } from "react-native";
 
-export default function WelcomeScreen() {
-  const [firstNName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+const FeedbackForm = () => {
+  // declare the variables
+  const [firstName, onChangeFirstName] = useState("");
+  const [lastName, onChangeLastName] = useState("");
+  const [message, onChangeMessage] = useState("");
+  const [phoneNumber, onChangePhoneNumber] = useState("");
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
-      <ScrollView
-        indicatorStyle="white"
-        style={styles.container}
-        keyboardDismissMode="on-drag"
-      >
-        <Text style={styles.headerText}>Welcome to Little Lemon</Text>
-        <Text style={styles.regularText}>
-          Little Lemon is a charming neighborhood bistro that serves simple food
-          and classic cocktails in a lively but casual environment. We would
-          love to hear more about your experience with us!
-        </Text>
-        <TextInput
-          style={styles.textInput}
-          value={firstNName}
-          placeholder="First Name"
-          onChangeText={setFirstName}
-        />
-
-        <TextInput
-          style={styles.textInput}
-          value={email}
-          placeholder="Email"
-          onChangeText={setEmail}
-        />
-
-        <TextInput
-          style={styles.textInput}
-          value={message}
-          placeholder="Message"
-          onChangeText={setMessage}
-        />
-      </ScrollView>
-    </KeyboardAvoidingView>
+    <ScrollView style={styles.container}>
+           {" "}
+      <Text style={styles.headingSection}>
+                How was your visit to Little Lemon?      {" "}
+      </Text>
+           {" "}
+      <Text style={styles.infoSection}>
+                Little Lemon is a charming neighborhood bistro that serves
+        simple food         and classic cocktails in a lively but casual
+        environment. We would love         to hear your experience with us!    
+         {" "}
+      </Text>
+           {" "}
+      <TextInput
+        style={styles.input}
+        value={firstName}
+        onChangeText={onChangeFirstName}
+        placeholder={"First Name"}
+      />
+           {" "}
+      <TextInput
+        style={styles.input}
+        value={lastName}
+        onChangeText={onChangeLastName}
+        placeholder={"Last Name"}
+      />
+           {" "}
+      <TextInput
+        style={styles.input}
+        value={phoneNumber}
+        onChangeText={onChangePhoneNumber}
+        placeholder={"Phone Number"}
+        keyboardType={"phone-pad"}
+      />
+           {" "}
+      <TextInput
+        style={styles.messageInput}
+        value={message}
+        onChangeText={onChangeMessage}
+        placeholder={"Please leave feedback"}
+        multiline={true}
+        maxLength={250}
+      />
+         {" "}
+    </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  headerText: {
-    padding: 40,
-    fontSize: 30,
-    color: "#EDEFEE",
-    textAlign: "center",
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    fontSize: 16,
+    borderColor: "EDEFEE",
+    backgroundColor: "#ffffff",
   },
-  regularText: {
+  messageInput: {
+    height: 100,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    fontSize: 16,
+    backgroundColor: "#ffffff",
+  },
+  infoSection: {
     fontSize: 24,
     padding: 20,
     marginVertical: 8,
     color: "#EDEFEE",
     textAlign: "center",
+    backgroundColor: "#495E57",
   },
-
-  textInput: {
-    backgroundColor: "#EDEFEE",
-    borderRadius: 5,
-    padding: 10,
-    height: 40,
-    margin: 12,
+  headingSection: {
+    fontSize: 28,
+    padding: 20,
+    marginVertical: 8,
+    color: "#EDEFEE",
+    textAlign: "center",
+    backgroundColor: "#495E57",
   },
 });
+
+export default FeedbackForm;
