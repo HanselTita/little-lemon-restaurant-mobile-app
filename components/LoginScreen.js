@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
 } from "react-native";
+import MenuItems from "./MenuItems";
 
 export default function LoginScreen() {
   const [email, onChangeEmail] = useState("");
@@ -27,6 +28,7 @@ export default function LoginScreen() {
           <Pressable onPress={() => onLogin(!loggedIn)} style={styles.button}>
             <Text style={styles.buttonText}>Log out</Text>
           </Pressable>
+          <MenuItems />
         </>
       )}
 

@@ -10,40 +10,34 @@ const FeedbackForm = () => {
 
   return (
     <ScrollView style={styles.container}>
-           {" "}
+      {" "}
       <Text style={styles.headingSection}>
-                How was your visit to Little Lemon?      {" "}
-      </Text>
-           {" "}
+        How was your visit to Little Lemon?{" "}
+      </Text>{" "}
       <Text style={styles.infoSection}>
-                Little Lemon is a charming neighborhood bistro that serves
-        simple food         and classic cocktails in a lively but casual
-        environment. We would love         to hear your experience with us!    
-         {" "}
-      </Text>
-           {" "}
+        Little Lemon is a charming neighborhood bistro that serves simple food
+        and classic cocktails in a lively but casual environment. We would love
+        to hear your experience with us!{" "}
+      </Text>{" "}
       <TextInput
         style={styles.input}
         value={firstName}
         onChangeText={onChangeFirstName}
         placeholder={"First Name"}
-      />
-           {" "}
+      />{" "}
       <TextInput
         style={styles.input}
         value={lastName}
         onChangeText={onChangeLastName}
         placeholder={"Last Name"}
-      />
-           {" "}
+      />{" "}
       <TextInput
         style={styles.input}
         value={phoneNumber}
         onChangeText={onChangePhoneNumber}
         placeholder={"Phone Number"}
         keyboardType={"phone-pad"}
-      />
-           {" "}
+      />{" "}
       <TextInput
         style={styles.messageInput}
         value={message}
@@ -51,8 +45,7 @@ const FeedbackForm = () => {
         placeholder={"Please leave feedback"}
         multiline={true}
         maxLength={250}
-      />
-         {" "}
+      />{" "}
     </ScrollView>
   );
 };
