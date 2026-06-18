@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { ScrollView, StyleSheet, Text, TextInput } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  useColorScheme,
+} from "react-native";
 
 const FeedbackForm = () => {
   // declare the variables
@@ -8,13 +14,32 @@ const FeedbackForm = () => {
   const [message, onChangeMessage] = useState("");
   const [phoneNumber, onChangePhoneNumber] = useState("");
 
+  const colorScheme = useColorScheme;
+
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={[
+        styles.container,
+        colorScheme === "light"
+          ? { backgroundColor: "#fff" }
+          : { backgroundColor: "#333333" },
+      ]}
+    >
       {" "}
-      <Text style={styles.headingSection}>
+      <Text
+        style={[
+          styles.headingSection,
+          colorScheme === "light" ? { color: "#333333" } : { color: "#EDEFEE" },
+        ]}
+      >
         How was your visit to Little Lemon?{" "}
       </Text>{" "}
-      <Text style={styles.infoSection}>
+      <Text
+        style={[
+          styles.infoSection,
+          colorScheme === "light" ? { color: "#333333" } : { color: "#EDEFEE" },
+        ]}
+      >
         Little Lemon is a charming neighborhood bistro that serves simple food
         and classic cocktails in a lively but casual environment. We would love
         to hear your experience with us!{" "}
